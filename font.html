@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Navigation Bar</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+		.form{
+			width:500px;
+			height:500px;
+			background:#f1f1f1;
+			box-shadow:2px 2px 20px grey;
+			margin:auto;
+			padding:30px;
+		}
+
+		.input{
+			background:white;
+			padding:4px;
+			margin:20px;
+			border:1px solid white;
+			transition:0.3s;
+		}
+
+		.input:hover{
+			border-bottom:1px solid grey;
+		}
+
+		.input input{
+			border:none;
+			outline:none;
+			padding:8px;
+		}
+
+		.btn{
+			width:90%;
+			padding:10px;
+			margin:20px;
+			border:none;
+			outline:none;
+			background:skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		
+		  <div class="input">
+		  	<i class="fa fa-user"></i>
+		  	<input type="text" placeholder="Enter name" id="name"></input>
+		  </div>
+
+		  <div class="input">
+		  	<i class="fa fa-user"></i>
+		  	<input type="text" placeholder="Enter age" id="age"></input>
+		  </div>
+
+		  <div class="input">
+		  	<i class="fa fa-user"></i>
+		  	<input type="text" placeholder="Enter occupation" id="occupation"></input>
+		  </div>
+		  <center><button class="btn" onclick="main()">Submit</button></center>
+		
+	</div>
+
+	<div class="output">
+		<table border="1">
+			<tr>
+				<td>Name</td>
+				<td id="uname"></td>
+			</tr>
+			<tr>
+				<td>age</td>
+				<td id="uage"></td>
+			</tr>
+			<tr>
+				<td>Occupation</td>
+				<td id="uoc"></td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+		function main(){
+			var a = document.getElementById("name").value;
+			var b = document.getElementById("age").value;
+			var c = document.getElementById("occupation").value;
+			
+			if(a == ""){
+				alert('Please enter name');
+				return;
+			}
+
+			if(b ==""){
+				alert('Please enter age');
+				return;
+			}
+			if(c ==""){
+                alert('Please enter occupation');
+				return;
+			}
+
+			localStorage.setItem("name",a);
+			localStorage.setItem("age",b);
+			localStorage.setItem("occupation",c);
+			output();
+		}
+		output();
+		function output(){
+			var x=localStorage.getItem("name");
+			var y=localStorage.getItem("age");
+			var z=localStorage.getItem("occupation");
+
+			uname.innerHTML=x;
+			uage.innerHTML=y;
+			uoc.innerHTML=z;
+		}
+	</script>
+</body>
+</html>
